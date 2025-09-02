@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d31jrr4fumgi8"
-path="res://.godot/imported/blown.png-6e480ec3b5e110e394c5dd7bda6ae023.ctex"
+uid="uid://bw4e274lkjdxh"
+path="res://.godot/imported/skillIcon_sample2.png-c7450a0dd0bc5d9290e22287925343ef.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprite/blown.png"
-dest_files=["res://.godot/imported/blown.png-6e480ec3b5e110e394c5dd7bda6ae023.ctex"]
+source_file="res://Sprite/skillIcon_sample2.png"
+dest_files=["res://.godot/imported/skillIcon_sample2.png-c7450a0dd0bc5d9290e22287925343ef.ctex"]
 
 [params]
 
@@ -31,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

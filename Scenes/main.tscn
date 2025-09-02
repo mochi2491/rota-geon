@@ -1,0 +1,175 @@
+[gd_scene load_steps=17 format=3 uid="uid://f7w2j5v07vwd"]
+
+[ext_resource type="Script" uid="uid://desgw1f6ofm16" path="res://Scripts/main.gd" id="1_0hts7"]
+[ext_resource type="Texture2D" uid="uid://dp3uqnmxbk5sk" path="res://Sprite/texture_turnfield.png" id="1_3g5fx"]
+[ext_resource type="Script" uid="uid://v56t48eo6q7x" path="res://Scripts/View/battle_view.gd" id="1_dhanr"]
+[ext_resource type="PackedScene" uid="uid://gawkn4eh06yq" path="res://Scenes/character_panel.tscn" id="1_ptub2"]
+[ext_resource type="Texture2D" uid="uid://m37eon7lqvnp" path="res://Sprite/healer.png" id="2_y13g4"]
+[ext_resource type="Script" uid="uid://ckgrue2205p8g" path="res://Scripts/View/turn_field_view.gd" id="3_5mbdu"]
+[ext_resource type="Texture2D" uid="uid://defan3loa44gp" path="res://Sprite/rotation_timer.png" id="3_d1ilt"]
+[ext_resource type="Script" uid="uid://bgotbhlp4uis1" path="res://Scripts/View/rotation_timer_slot_view.gd" id="3_fdnlq"]
+[ext_resource type="Texture2D" uid="uid://roybcbg6306d" path="res://Sprite/dot-picture-game-style1.jpg" id="3_rnaeq"]
+[ext_resource type="Texture2D" uid="uid://bvgy86mcehkwh" path="res://Sprite/gray.png" id="4_nadqn"]
+[ext_resource type="Script" uid="uid://dggbw5bssitos" path="res://Scripts/View/character_avator_view.gd" id="5_5ugnt"]
+[ext_resource type="Texture2D" uid="uid://d31jrr4fumgi8" path="res://Sprite/blown.png" id="5_bsmm7"]
+[ext_resource type="Texture2D" uid="uid://ctpfatxomyvjg" path="res://Sprite/rotation_timer_shadow.png" id="5_jkdf5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x2pre"]
+albedo_texture = ExtResource("3_rnaeq")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ju8s"]
+albedo_texture = ExtResource("5_bsmm7")
+
+[sub_resource type="BoxMesh" id="BoxMesh_efn7x"]
+material = SubResource("StandardMaterial3D_1ju8s")
+
+[node name="Main" type="Node"]
+script = ExtResource("1_0hts7")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CharacterPanel" parent="CanvasLayer" instance=ExtResource("1_ptub2")]
+offset_left = 26.0
+offset_top = 672.0
+offset_right = -1644.0
+offset_bottom = -23.0
+
+[node name="RotationTimerSlot" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 30.0
+offset_top = 620.0
+offset_right = 170.0
+offset_bottom = 660.0
+script = ExtResource("3_fdnlq")
+
+[node name="RotationTimer1" type="Control" parent="CanvasLayer/RotationTimerSlot"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Texture" type="TextureRect" parent="CanvasLayer/RotationTimerSlot/RotationTimer1"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_d1ilt")
+
+[node name="Shadow" type="TextureRect" parent="CanvasLayer/RotationTimerSlot/RotationTimer1"]
+self_modulate = Color(1, 1, 1, 0.623529)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+pivot_offset = Vector2(20, 20)
+texture = ExtResource("5_jkdf5")
+
+[node name="RotationTimer2" type="Control" parent="CanvasLayer/RotationTimerSlot"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 50.0
+offset_right = 90.0
+offset_bottom = 40.0
+
+[node name="Texture" type="TextureRect" parent="CanvasLayer/RotationTimerSlot/RotationTimer2"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_d1ilt")
+
+[node name="Shadow" type="TextureRect" parent="CanvasLayer/RotationTimerSlot/RotationTimer2"]
+self_modulate = Color(1, 1, 1, 0.623529)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+pivot_offset = Vector2(20, 20)
+texture = ExtResource("5_jkdf5")
+
+[node name="RotationTimer3" type="Control" parent="CanvasLayer/RotationTimerSlot"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 100.0
+offset_right = 140.0
+offset_bottom = 40.0
+
+[node name="Texture" type="TextureRect" parent="CanvasLayer/RotationTimerSlot/RotationTimer3"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_d1ilt")
+
+[node name="Shadow" type="TextureRect" parent="CanvasLayer/RotationTimerSlot/RotationTimer3"]
+self_modulate = Color(1, 1, 1, 0.623529)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+pivot_offset = Vector2(20, 20)
+texture = ExtResource("5_jkdf5")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.984989, 0.172617, 0, -0.172617, 0.984989, 0, 1.95427, 1.00358)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.938252, 0.345953, 0, -0.345953, 0.938252, 0, 4.2274, 3.95276)
+
+[node name="BattleField" type="Node3D" parent="."]
+script = ExtResource("1_dhanr")
+
+[node name="TurnFieldLeft" type="Sprite3D" parent="BattleField"]
+transform = Transform3D(15, 0, 0, 0, 2.60472, 1.47721, 0, -14.7721, 0.260472, -1.5, 1.8747, -1.6)
+sorting_offset = 1.0
+texture_filter = 0
+texture = ExtResource("1_3g5fx")
+script = ExtResource("3_5mbdu")
+
+[node name="CharacterPosition" type="Node3D" parent="BattleField/TurnFieldLeft"]
+transform = Transform3D(0.999999, 0, 0, 0, 1, -1.86265e-09, 0, 1.19209e-07, 1, 0.035, 0.002, 0.16)
+
+[node name="Character" type="Sprite3D" parent="BattleField/TurnFieldLeft/CharacterPosition"]
+transform = Transform3D(3, 0, 0, 0, 2.95442, -0.173648, 0, 0.520945, 0.984807, -0.975, 2.11478, -1.55832)
+top_level = true
+sorting_offset = 2.0
+flip_h = true
+shaded = true
+texture_filter = 0
+texture = ExtResource("2_y13g4")
+script = ExtResource("5_5ugnt")
+
+[node name="CharacterPosition2" type="Node3D" parent="BattleField/TurnFieldLeft"]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999998, -1.11759e-08, 0, 1.19209e-07, 0.999999, -0.0121713, -0.0263004, 0.184755)
+
+[node name="Character" type="Sprite3D" parent="BattleField/TurnFieldLeft/CharacterPosition2"]
+transform = Transform3D(3, 0, 0, 0, 2.95442, -0.173648, 0, 0.520945, 0.984807, -1.65347, 2.04464, -1.17202)
+top_level = true
+sorting_offset = 2.0
+flip_h = true
+shaded = true
+texture_filter = 0
+texture = ExtResource("2_y13g4")
+script = ExtResource("5_5ugnt")
+
+[node name="CharacterPosition3" type="Node3D" parent="BattleField/TurnFieldLeft"]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, -7.45058e-09, 0, 2.38419e-07, 0.999999, -0.013773, 0.02839, 0.185169)
+
+[node name="Character" type="Sprite3D" parent="BattleField/TurnFieldLeft/CharacterPosition3"]
+transform = Transform3D(3, 0, 0, 0, 2.95442, -0.173648, 0, 0.520945, 0.984807, -1.73734, 2.17956, -1.95644)
+top_level = true
+sorting_offset = 2.0
+flip_h = true
+shaded = true
+texture_filter = 0
+texture = ExtResource("2_y13g4")
+script = ExtResource("5_5ugnt")
+
+[node name="TurnFieldRight" type="Sprite3D" parent="BattleField"]
+transform = Transform3D(15, 0, 0, 0, 2.60472, 1.47721, 0, -14.7721, 0.260472, 1.5, 1.9, -1.6)
+sorting_offset = 1.0
+texture_filter = 0
+texture = ExtResource("1_3g5fx")
+
+[node name="wall" type="Sprite3D" parent="."]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 3.15037, -2.7)
+material_override = SubResource("StandardMaterial3D_x2pre")
+texture = ExtResource("4_nadqn")
+
+[node name="ground" type="MeshInstance3D" parent="."]
+transform = Transform3D(13.758, 0, 0, 0, 2.00144, -1.02533, 0, 0.352907, 5.81494, 0, 1.15597, -3.3795)
+mesh = SubResource("BoxMesh_efn7x")
