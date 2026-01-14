@@ -1,19 +1,26 @@
-class_name character
+class_name Character
 extends RefCounted
 
-var _current_hp: int:
-	get:
-		return _current_hp
-		
-var _max_hp: int:
-	get:
-		return _max_hp
-		
-var _shield: int:
-	get:
-		return _shield
+var _status: Status
 
-func _init(max_hp: int):
-	_max_hp = max_hp
-	_current_hp = _max_hp
-	_shield = 0
+var _active_skill_slot: Array[Skill] = []
+var _passive_skill_slot: Array[String] = []
+
+# Todo
+# HPの処理をStatusに以上する
+
+func _use_active_skill(skill_num: int, bf: BattleField) -> void:
+	_active_skill_slot[skill_num]._execute(bf)
+	return
+
+func _init(max_hp: int, skill_data_1, skill_data_2) -> void:
+	var data = {
+		"max_hp": max_hp,
+		"attack": 10,
+		"armor": 5,
+		"agility": 3
+	}
+	_status = Status.new(data)
+	_active_skill_slot.append(Skill.new(skill_data_1))
+	_active_skill_slot.append(Skill.new(skill_data_2))
+	return

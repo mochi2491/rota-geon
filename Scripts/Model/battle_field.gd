@@ -1,20 +1,19 @@
-class_name battle_field
+class_name BattleField
 extends RefCounted
+
 ## 責務
 ## TurnFieldクラスの保持
 ## 戦闘の状態やTurnField同士のやり取り
 
 var fields = {}
+var skill_dict = SkillDict.new()
 
 func _init():
-	fields = {"Left": turn_field.new()}
-
-func _input(event):
-	# 入力イベントをTurnFieldに伝える
-	if event.is_action_pressed("right"):
-		fields["left"].on_rotate_cw()
-	if event.is_action_pressed("left"):
-		fields["left"].on_rotate_ccw()
+	fields = {"Left": TurnField.new(), "Right": TurnField.new()}
+	fields["Left"]._add_character(Character.new(60, skill_dict._skill_dictionary["sample1"], skill_dict._skill_dictionary["sample1"]))
+	fields["Left"]._add_character(Character.new(60, skill_dict._skill_dictionary["sample1"], skill_dict._skill_dictionary["sample1"]))
+	fields["Left"]._add_character(Character.new(60, skill_dict._skill_dictionary["sample1"], skill_dict._skill_dictionary["sample1"]))
+	fields["Right"]._add_character(Character.new(200, skill_dict._skill_dictionary["sample1"], skill_dict._skill_dictionary["sample1"]))
 
 func frame_process(delta: float):
 	for field in fields:

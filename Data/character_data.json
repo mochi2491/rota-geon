@@ -1,0 +1,28 @@
+{
+	"characteristics": [
+		{
+			"name": "tank",
+			"hp": 2000.0,
+			"main_passive": "",
+			"sub_passive": "",
+			"active1": "",
+			"active2": ""
+		},
+		{
+			"name": "dps",
+			"hp": 1500.0,
+			"main_passive": "",
+			"sub_passive": "",
+			"active1": "",
+			"active2": ""
+		},
+		{
+			"name": "healer",
+			"hp": 1000.0,
+			"main_passive": "",
+			"sub_passive": "",
+			"active1": "",
+			"active2": ""
+		}
+	]
+}

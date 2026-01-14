@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://f7w2j5v07vwd"]
+[gd_scene load_steps=18 format=3 uid="uid://f7w2j5v07vwd"]
 
 [ext_resource type="Script" uid="uid://desgw1f6ofm16" path="res://Scripts/main.gd" id="1_0hts7"]
 [ext_resource type="Texture2D" uid="uid://dp3uqnmxbk5sk" path="res://Sprite/texture_turnfield.png" id="1_3g5fx"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://dggbw5bssitos" path="res://Scripts/View/character_avator_view.gd" id="5_5ugnt"]
 [ext_resource type="Texture2D" uid="uid://d31jrr4fumgi8" path="res://Sprite/blown.png" id="5_bsmm7"]
 [ext_resource type="Texture2D" uid="uid://ctpfatxomyvjg" path="res://Sprite/rotation_timer_shadow.png" id="5_jkdf5"]
+[ext_resource type="Texture2D" uid="uid://cm0eohcknhfp3" path="res://Sprite/vampire.png" id="11_jkdf5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x2pre"]
 albedo_texture = ExtResource("3_rnaeq")
@@ -27,12 +28,6 @@ material = SubResource("StandardMaterial3D_1ju8s")
 script = ExtResource("1_0hts7")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="CharacterPanel" parent="CanvasLayer" instance=ExtResource("1_ptub2")]
-offset_left = 26.0
-offset_top = 672.0
-offset_right = -1644.0
-offset_bottom = -23.0
 
 [node name="RotationTimerSlot" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -104,6 +99,33 @@ offset_bottom = 40.0
 pivot_offset = Vector2(20, 20)
 texture = ExtResource("5_jkdf5")
 
+[node name="CharacterPanels" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CharacterPanel0" parent="CanvasLayer/CharacterPanels" instance=ExtResource("1_ptub2")]
+layout_mode = 1
+offset_left = 30.0
+offset_top = 680.0
+offset_right = -10.0
+offset_bottom = 640.0
+
+[node name="CharacterPanel1" parent="CanvasLayer/CharacterPanels" instance=ExtResource("1_ptub2")]
+layout_mode = 1
+offset_left = 300.0
+offset_top = 680.0
+offset_right = 260.0
+offset_bottom = 640.0
+
+[node name="CharacterPanel2" parent="CanvasLayer/CharacterPanels" instance=ExtResource("1_ptub2")]
+layout_mode = 1
+offset_left = 570.0
+offset_top = 680.0
+offset_right = 530.0
+offset_bottom = 640.0
+
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.984989, 0.172617, 0, -0.172617, 0.984989, 0, 1.95427, 1.00358)
 
@@ -164,6 +186,16 @@ transform = Transform3D(15, 0, 0, 0, 2.60472, 1.47721, 0, -14.7721, 0.260472, 1.
 sorting_offset = 1.0
 texture_filter = 0
 texture = ExtResource("1_3g5fx")
+
+[node name="CharacterPosition" type="Node3D" parent="BattleField/TurnFieldRight"]
+transform = Transform3D(1, 0, 0, 0, 0.999999, 0, 0, 2.38419e-07, 1, 0, 0.00315571, 0.312841)
+
+[node name="Character" type="Sprite3D" parent="BattleField/TurnFieldRight/CharacterPosition"]
+transform = Transform3D(0.2, 0, 0, 0, -8.00937e-08, -0.2, 0, 1.8, -2.98023e-08, 0, 0, 0)
+sorting_offset = 2.0
+shaded = true
+texture_filter = 0
+texture = ExtResource("11_jkdf5")
 
 [node name="wall" type="Sprite3D" parent="."]
 transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 3.15037, -2.7)

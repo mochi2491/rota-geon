@@ -27,8 +27,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	current_hp -= 1
-	
 	hp_bar_length = current_hp / max_hp * 250
 	shield_bar_length = shield
 
@@ -43,4 +41,4 @@ func _process(_delta):
 	pass
 
 # shieldBarをHpBarの後ろにくっつけるかつUnderHPBarからはみ出ないようにする
-# hp + shieldが最大HPより多い場合 HPBarとShieldBarを縮めてUnderHPBarからはみ出ないようにする
+# hp + Shieldが最大HPより多い場合 HPBarとShieldBarを縮めてUnderHPBarからはみ出ないようにする

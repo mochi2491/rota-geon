@@ -7,6 +7,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	#turn_fieldと一緒に動くための処理
+	#TurnFieldと一緒に動くための処理
 	position = get_parent().global_position
 	pass

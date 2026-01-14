@@ -4,7 +4,7 @@
 - [プロトタイプ](https://docs.google.com/document/d/1dCTnHuhPBlxgrlmGzCe3Q4TYKIQxyHL_WNHmgHPQDCI/edit?usp=sharing
 
 # memo
-キャラは固定スキルを入れ替えてプレイヤーが四苦八苦する感じにしたい
+キャラは固定でスキルというかスタイルを入れ替えてプレイヤーが四苦八苦する感じにしたい
 
 # Todo
 - turn_fieldがCDを持つようにする
@@ -18,9 +18,10 @@
   * skill_icon
   * health_bar
 
-
 # ロードマップ
-* 敵実装
-* ステータス実装
-* スキル実装
-* スキル入れ替え実装
+- [ ] 敵実装
+- [ ] ステータス実装
+- [ ] スキル実装
+  - [ ] ステータスへの反映実装
+  - [ ] CDの実装
+- [ ] スキル入れ替え実装
