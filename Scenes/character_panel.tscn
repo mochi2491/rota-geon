@@ -18,13 +18,13 @@ offset_right = -1670.0
 offset_bottom = -695.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("2_f0ey6")
 
 [node name="Panel" type="TextureRect" parent="."]
 layout_mode = 0
 offset_right = 250.0
 offset_bottom = 385.0
 texture = ExtResource("1_pgwyu")
-script = ExtResource("2_f0ey6")
 
 [node name="CharacterPortrait" type="TextureRect" parent="Panel"]
 layout_mode = 0
@@ -33,7 +33,7 @@ offset_bottom = 225.0
 texture = ExtResource("3_vm1v6")
 flip_h = true
 
-[node name="SkillIcon" parent="Panel" instance=ExtResource("6_bev8g")]
+[node name="SkillIcon1" parent="Panel" instance=ExtResource("6_bev8g")]
 offset_top = 260.0
 offset_right = 125.0
 offset_bottom = 385.0

@@ -1,11 +1,11 @@
-class_name turn_field
+class_name TurnField
 extends RefCounted
 
 ## _front_character_number
 ## 現在の正面のキャラクターのナンバー
 ## 0~2の値を持つ
 var _front_character_number: int = 0
-var _character_array = []
+var _character_array: Array[Character] = []
 
 ## _rotate_duration
 ## 回転アニメーションのCD
@@ -24,21 +24,24 @@ const _origin_stock_cooldown: float = 4.0
 signal change_character_number(number: int)
 signal change_rotate_stock(valid_stock_list: Array[bool], cooldown_ratio_list: Array[float])
 
+## コンストラクタ
 func _init():
-	_character_array.append(character.new(50))
-	_character_array.append(character.new(50))
-	_character_array.append(character.new(50))
 	return
 
+func _add_character(character: Character) -> void:
+	_character_array.append(character)
+	return
+
+## CDを解消しているストックの番号を取得
+## 使用可能なストックがない場合は-1を返す
 func get_can_use_rotate_stock_num() -> int:
-	# CDを解消しているストックの番号を取得
 	for i in range(_max_rotate_stock):
 		if _can_use_stock_list[i] and _current_stock_cooldown_list[i] <= 0:
 			_current_stock_cooldown_list[i] = _rotate_cooldown
 			return i
 	return -1
 
-func on_rotate_cw() -> void:
+func _on_rotate_cw() -> void:
 	var focused_stock_num = get_can_use_rotate_stock_num()
 
 	# 使用可能なストックがない場合は何もしない
@@ -58,11 +61,9 @@ func on_rotate_cw() -> void:
 		change_character_number.emit(_front_character_number)
 
 	_current_stock_cooldown_list[focused_stock_num] = _origin_stock_cooldown
-
-	print(_front_character_number)
 	return
 	
-func on_rotate_ccw() -> void:
+func _on_rotate_ccw() -> void:
 	var focused_stock_num = get_can_use_rotate_stock_num()
 
 	# 使用可能なストックがない場合は何もしない
@@ -82,7 +83,6 @@ func on_rotate_ccw() -> void:
 		change_character_number.emit(_front_character_number)
 
 	_current_stock_cooldown_list[focused_stock_num] = _origin_stock_cooldown
-	print(_front_character_number)
 	return
 
 func _consume_cooldown(delta: float) -> void:
@@ -104,6 +104,14 @@ func _consume_cooldown(delta: float) -> void:
 	change_rotate_stock.emit(_can_use_stock_list, cd_list)
 	return
 
+## 正面のキャラクターのスキルを使用する
+## skill_num: キャラクターのどちらかのスキルか(1 or 2)
+func _use_skill_on_front_character(skill_num: int, bf: BattleField) -> void:
+	_character_array[_front_character_number]._use_active_skill(skill_num, bf)
+	return
+
 ## 毎フレーム呼ばれる
 func frame_process(delta: float):
 	_consume_cooldown(delta)
+	for character in _character_array:
+		character.frame_process(delta)

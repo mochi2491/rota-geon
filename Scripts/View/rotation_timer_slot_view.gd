@@ -4,7 +4,7 @@ var timer_list: Array = []
 
 const MAX_TIMER_COUNT = 3
 
-@onready var model: turn_field
+@onready var model: TurnField
 
 func _set_cooldown(scale: float, num: int) -> void:
 	timer_list[num].get_node("Shadow").scale.x = scale

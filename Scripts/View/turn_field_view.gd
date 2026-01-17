@@ -6,9 +6,7 @@ var _current_front_num = 0
 ## 現在回転中かどうか
 var _is_rotating: bool
 
-var mutex: Mutex = Mutex.new()
-
-@onready var model: turn_field
+@onready var model: TurnField
 
 ## turn filed を回転させる
 ## @param next_front_num 正面のキャラクターのnumber
