@@ -7,7 +7,14 @@
 キャラは固定でスキルというかスタイルを入れ替えてプレイヤーが四苦八苦する感じにしたい
 
 # Todo
-- turn_fieldがCDを持つようにする
+
+# model構成
+* BattleField
+  * TurnField
+    * Character
+      * Skill
+      * Status
+  * SkillDict
 
 # view構成
 * battle_view
@@ -17,11 +24,21 @@
   * character_portrait
   * skill_icon
   * health_bar
+* enemy_panel
+  * health_bar
+  * skill_icon (dummy)
+
+# 既知のバグ
+- 詠唱が回転しても続く
 
 # ロードマップ
+- [ ] とりあえずbgm
 - [ ] 敵実装
 - [ ] ステータス実装
-- [ ] スキル実装
-  - [ ] ステータスへの反映実装
-  - [ ] CDの実装
+- [ ] ステート実装
+- [x] スキル実装
+  - [x] ステータスへの反映実装
+  - [x] CDの実装
+  - [ ] 発動時間の実装
+  - [ ] スキルの演出追加
 - [ ] スキル入れ替え実装

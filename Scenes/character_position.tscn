@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=3 uid="uid://p1bdhh1k4ont"]
+
+[ext_resource type="Texture2D" uid="uid://m37eon7lqvnp" path="res://Sprite/healer.png" id="1_nvkpn"]
+[ext_resource type="Script" uid="uid://dggbw5bssitos" path="res://Scripts/View/character_avator_view.gd" id="2_qjhgh"]
+
+[sub_resource type="Animation" id="Animation_hibaj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Character:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.01906, 2.11214, -1.53476)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pdsj5"]
+_data = {
+&"RESET": SubResource("Animation_hibaj")
+}
+
+[sub_resource type="Animation" id="Animation_ee4r6"]
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Character:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.166667, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-1.01906, 2.11214, -1.53476), Vector3(-1.069, 2.112, -1.535), Vector3(-0.819, 2.112, -1.535), Vector3(-1.019, 2.112, -1.535)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gt3je"]
+_data = {
+&"attack_1": SubResource("Animation_ee4r6")
+}
+
+[node name="CharacterPosition1" type="Node3D"]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999996, -1.11759e-08, 0, 3.57628e-07, 0.999999, 0.0320627, -0.00153485, 0.163439)
+
+[node name="Character" type="Sprite3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 2.95442, -0.173648, 0, 0.520945, 0.984806, -1.01906, 2.11214, -1.53476)
+top_level = true
+sorting_offset = 2.0
+flip_h = true
+shaded = true
+texture_filter = 0
+texture = ExtResource("1_nvkpn")
+script = ExtResource("2_qjhgh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Character"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_pdsj5"),
+&"player_moves": SubResource("AnimationLibrary_gt3je")
+}

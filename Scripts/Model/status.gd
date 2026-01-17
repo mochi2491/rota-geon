@@ -1,6 +1,8 @@
 class_name Status
 extends RefCounted
 
+signal change_current_hp(current_hp: float)
+
 # 入力はJson?
 func _init(data):
 	_origin_max_hp = data["max_hp"]
@@ -25,6 +27,8 @@ func _get_total_shield() -> float:
 	return 0
 
 func _take_damage(damage: float) -> float:
+	_current_hp -= damage
+	change_current_hp.emit(_current_hp)
 	return 0
 
 

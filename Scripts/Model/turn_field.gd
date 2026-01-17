@@ -113,3 +113,5 @@ func _use_skill_on_front_character(skill_num: int, bf: BattleField) -> void:
 ## 毎フレーム呼ばれる
 func frame_process(delta: float):
 	_consume_cooldown(delta)
+	for character in _character_array:
+		character.frame_process(delta)
