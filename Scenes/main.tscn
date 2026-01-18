@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://f7w2j5v07vwd"]
+[gd_scene load_steps=24 format=3 uid="uid://f7w2j5v07vwd"]
 
 [ext_resource type="Script" uid="uid://desgw1f6ofm16" path="res://Scripts/main.gd" id="1_0hts7"]
 [ext_resource type="Texture2D" uid="uid://dp3uqnmxbk5sk" path="res://Sprite/texture_turnfield.png" id="1_3g5fx"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://c5iq2xw7en6gt" path="res://Sprite/Shiledbar.png" id="9_hibaj"]
 [ext_resource type="PackedScene" uid="uid://byn0xmh6porlj" path="res://Scenes/skill_icon.tscn" id="11_hibaj"]
 [ext_resource type="Texture2D" uid="uid://cm0eohcknhfp3" path="res://Sprite/vampire.png" id="11_jkdf5"]
+[ext_resource type="Script" uid="uid://dc50b3getrnyi" path="res://Scripts/View/state_slot_view.gd" id="12_hibaj"]
 [ext_resource type="PackedScene" uid="uid://p1bdhh1k4ont" path="res://Scenes/character_position.tscn" id="15_fevyy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x2pre"]
@@ -178,6 +179,20 @@ offset_right = 1040.0
 [node name="SkillIcon2" parent="CanvasLayer/EnemyPanel/Panel" instance=ExtResource("11_hibaj")]
 offset_left = 1000.0
 offset_right = 1040.0
+
+[node name="StateSlot" type="Control" parent="CanvasLayer/EnemyPanel/Panel"]
+layout_mode = 3
+anchors_preset = 0
+offset_top = -250.0
+offset_right = 250.0
+script = ExtResource("12_hibaj")
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/EnemyPanel/Panel/StateSlot"]
+layout_mode = 0
+offset_right = 250.0
+offset_bottom = 250.0
+pivot_offset = Vector2(0, 250)
+columns = 5
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.984989, 0.172617, 0, -0.172617, 0.984989, 0, 1.95427, 1.00358)

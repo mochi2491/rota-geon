@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://bnpde8q1al3qq"]
+
+[ext_resource type="Texture2D" uid="uid://dcr6x67xtnd6o" path="res://Sprite/poison_state.png" id="1_55svg"]
+[ext_resource type="Script" uid="uid://u6mssdwwdkcw" path="res://Scripts/View/state_panel_view.gd" id="1_n1o8t"]
+[ext_resource type="Texture2D" uid="uid://ci0dllub5iq6o" path="res://Sprite/skillIconShadow.png" id="2_wylsv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nqicw"]
+outline_size = 3
+outline_color = Color(0.0687983, 0.0687983, 0.0687983, 1)
+shadow_color = Color(0, 0, 0, 0.831373)
+
+[node name="StatePanel" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_n1o8t")
+
+[node name="StateTexture" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_55svg")
+
+[node name="ShadowTexture" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.588235)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(1, 1e-05)
+pivot_offset = Vector2(0, 40)
+texture = ExtResource("2_wylsv")
+expand_mode = 1
+
+[node name="StackCountLabel" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+text = "0"
+label_settings = SubResource("LabelSettings_nqicw")
+horizontal_alignment = 2
+vertical_alignment = 2

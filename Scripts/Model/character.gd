@@ -2,6 +2,7 @@ class_name Character
 extends RefCounted
 
 var _status: Status
+var _state_slot: StateList = StateList.new()
 var _active_skill_slot: Array[Skill] = []
 var _passive_skill_slot: Array[String] = []
 # Todo
@@ -27,4 +28,5 @@ func frame_process(delta: float) -> void:
 	_status.frame_process(delta)
 	for skill in _active_skill_slot:
 		skill.frame_process(delta)
+	_state_slot.frame_process(delta)
 	return
