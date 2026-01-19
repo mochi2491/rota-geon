@@ -11,15 +11,15 @@
 # model構成
 * BattleField
   * TurnField
-    * Character
-      * Skill
-      * Status
+	* Character
+	  * Skill
+	  * Status
   * SkillDict
 
 # view構成
 * battle_view
   * turn_field_view
-    * character_avater
+	* character_avater
 * character_panel
   * character_portrait
   * skill_icon
@@ -30,15 +30,20 @@
 
 # 既知のバグ
 - 詠唱が回転しても続く
+- TextWindowViewが多分変な挙動
+  - tween中に表示しようとすると挙動がおかしくなるはず
 
 # ロードマップ
 - [ ] とりあえずbgm
 - [ ] 敵実装
-- [ ] ステータス実装
-- [ ] ステート実装
+  - [ ] 敵の行動アルゴリズム作成
+  - [ ] アニメーションの作成
+  - [ ] 予備行動演出を追加
+- [x] ステータス実装
+- [x] ステート実装
 - [x] スキル実装
   - [x] ステータスへの反映実装
   - [x] CDの実装
-  - [ ] 発動時間の実装
+  - [x] 発動時間の実装
   - [ ] スキルの演出追加
 - [ ] スキル入れ替え実装

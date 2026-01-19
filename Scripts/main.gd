@@ -15,6 +15,7 @@ extends Node
 	get_node("CanvasLayer/CharacterPanels/CharacterPanel2"),
 ]
 @onready var enemy_panel_view = get_node("CanvasLayer/EnemyPanel")
+@onready var text_window = get_node("CanvasLayer/TextWindow")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
